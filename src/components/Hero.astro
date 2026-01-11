@@ -13,7 +13,12 @@ const pills = [
 ];
 ---
 
-<section class="relative min-h-screen bg-[#0f0d1a] overflow-hidden">
+<section class="relative pt-[6rem] pb-[4rem] md:pt-[8rem] md:pb-[6rem] overflow-hidden bg-[#0A0A0A]">
+  <!-- Gradient Background -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[1000px] h-[1000px] bg-[#6D28D9]/20 blur-[100px] rounded-full mix-blend-screen"></div>
+    <div class="absolute top-0 inset-x-0 h-[200px] bg-gradient-to-b from-[#6D28D9]/10 to-transparent"></div>
+  </div>
   
   <!-- Gradiente radial sutil -->
   <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(139,92,246,0.12),transparent)]"></div>
@@ -37,8 +42,8 @@ const pills = [
       </div>
       
       <!-- Headline CRO - Foco na dor -->
-      <h1 class="text-[2rem] sm:text-[3.5rem] lg:text-[4rem] font-bold text-white leading-[1.1] tracking-tight mb-[1.25rem] animate-fade-in animation-delay-100 mx-auto">
-        Chega de 5 ferramentas <br class="block sm:hidden"/>
+      <h1 class="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-bold text-white leading-[1.1] tracking-tight mb-[1.5rem] animate-fade-in animation-delay-100 mx-auto">
+        Chega de 5 ferramentas <br class="hidden md:block"/>
         <span class="bg-gradient-to-r from-violet-400 to-purple-300 bg-clip-text text-transparent inline">para gerenciar sua agência</span>
       </h1>
       
