@@ -1,0 +1,52 @@
+---
+// FAQ FINAL - fade-in, cor roxo consistente
+const faqs = [
+  { q: 'Para quem é indicado?', a: 'Agências de design, web, vídeo e qualquer agência criativa que precisa gerenciar projetos e clientes.' },
+  { q: 'Posso testar antes de contratar?', a: 'Sim. Temos um plano gratuito para experimentar e você pode agendar uma demonstração personalizada.' },
+  { q: 'Como funciona o white-label?', a: 'Você usa seu logo, suas cores e seu domínio. Seus clientes acessam como se fosse seu sistema.' },
+  { q: 'Posso cancelar a qualquer momento?', a: 'Sim. Sem fidelidade, sem multa. Cancele quando quiser.' },
+  { q: 'Quanto tempo leva para implementar?', a: 'Em média 1 semana. Oferecemos onboarding para ajudar na migração.' }
+];
+---
+
+<section class="py-[6rem] bg-[#FAFAFA] fade-section">
+  <div class="max-w-[48rem] mx-auto px-[1rem] md:px-[1.5rem]">
+    
+    <div class="text-center mb-[3rem]">
+      <p class="text-[0.875rem] font-medium text-[#6D28D9] mb-[0.5rem]">FAQ</p>
+      <h2 class="text-[2rem] font-semibold text-[#0A0A0A]">
+        Perguntas frequentes
+      </h2>
+    </div>
+    
+    <div class="space-y-[0.75rem]">
+      {faqs.map((faq) => (
+        <details class="group bg-white rounded-[0.5rem] border border-[#E5E5E5] hover:border-[#6D28D9]/30 transition-colors duration-200">
+          <summary class="flex justify-between items-center p-[1.25rem] cursor-pointer list-none">
+            <span class="text-[1rem] font-medium text-[#0A0A0A]">{faq.q}</span>
+            <svg class="w-[1.25rem] h-[1.25rem] text-[#737373] group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </summary>
+          <div class="px-[1.25rem] pb-[1.25rem]">
+            <p class="text-[0.875rem] text-[#737373] leading-relaxed">{faq.a}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+    
+  </div>
+</section>
+
+<style>
+  .fade-section {
+    opacity: 0;
+    transform: translateY(2rem);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  .fade-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>

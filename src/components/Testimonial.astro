@@ -1,0 +1,90 @@
+---
+// Testimonials - sem logos (movidos para LogosBar)
+
+const testimonials = [
+  {
+    metric: '-40%',
+    metricLabel: 'tempo de entrega',
+    quote: '"Wikimee reduziu nosso tempo de ida ao mercado. Eliminamos retrabalho e encurtamos ciclos de aprovação."',
+    name: 'Bruno Zago',
+    role: 'Gerente de Marketing, Sicredi',
+    image: '/testimonial-bruno.png'
+  },
+  {
+    metric: '2×',
+    metricLabel: 'mais entregas por mês',
+    quote: '"Automatizamos o fluxo de criação de peças. A equipe ganhou agilidade e o suporte é fantástico."',
+    name: 'Pollyanna Moscozo',
+    role: 'Head de Marketing, CVLB',
+    image: '/testimonial-pollyanna.png'
+  },
+  {
+    metric: '5→1',
+    metricLabel: 'ferramentas',
+    quote: '"Centralizo demandas, entregas e desdobramentos criativos. Tudo em um lugar só."',
+    name: 'Danilo Arato',
+    role: 'Diretor Criativo, Bolt',
+    image: '/testimonial-danilo.png'
+  }
+];
+---
+
+<section class="py-[6rem] bg-[#FAFAFA] border-y border-[#E5E5E5] fade-section">
+  <div class="max-w-[75rem] mx-auto px-[1rem] md:px-[1.5rem] lg:px-[3rem]">
+    
+    <!-- Header -->
+    <div class="text-center mb-[3rem]">
+      <p class="text-[0.875rem] font-medium text-[#6D28D9] mb-[0.5rem]">Resultados</p>
+      <h2 class="text-[2rem] sm:text-[2.5rem] font-semibold text-[#0A0A0A]">
+        Agências que cresceram com Wikimee
+      </h2>
+    </div>
+    
+    <!-- Grid de testimonials -->
+    <div class="grid md:grid-cols-3 gap-[1.5rem]">
+      {testimonials.map((testimonial) => (
+        <div class="bg-white rounded-[1rem] p-[2rem] border border-[#E5E5E5] hover:border-[#6D28D9]/30 hover:shadow-lg transition-all duration-300">
+          
+          <!-- Métrica em destaque -->
+          <div class="mb-[1.5rem]">
+            <span class="text-[2.5rem] font-bold text-[#0A0A0A]">{testimonial.metric}</span>
+            <span class="text-[1rem] text-[#737373] ml-[0.5rem]">{testimonial.metricLabel}</span>
+          </div>
+          
+          <!-- Quote -->
+          <p class="text-[1rem] text-[#525252] leading-relaxed mb-[1.5rem]">
+            {testimonial.quote}
+          </p>
+          
+          <!-- Autor -->
+          <div class="flex items-center gap-[0.75rem]">
+            <img 
+              src={testimonial.image} 
+              alt={testimonial.name}
+              class="w-[2.5rem] h-[2.5rem] rounded-full object-cover"
+            />
+            <div>
+              <p class="text-[0.875rem] font-medium text-[#0A0A0A]">{testimonial.name}</p>
+              <p class="text-[0.75rem] text-[#737373]">{testimonial.role}</p>
+            </div>
+          </div>
+          
+        </div>
+      ))}
+    </div>
+    
+  </div>
+</section>
+
+<style>
+  .fade-section {
+    opacity: 0;
+    transform: translateY(2rem);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  .fade-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>

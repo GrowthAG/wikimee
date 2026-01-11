@@ -1,0 +1,72 @@
+---
+// Logos Bar - MAIOR e mais visível
+const clients = [
+  { name: 'Score Group', logo: '/logo-client-1.png' },
+  { name: 'Condor', logo: '/logo-client-2.png' },
+  { name: 'Fecomércio', logo: '/logo-client-3.png' },
+  { name: 'Grupo Boticário', logo: '/logo-client-4.png' }
+];
+---
+
+<section class="py-[4rem] bg-white border-b border-[#E5E5E5] overflow-hidden">
+  <div class="max-w-[80rem] mx-auto px-[1.5rem]">
+    
+    <p class="text-center text-[0.9375rem] text-[#737373] mb-[3rem]">
+      Confiado por líderes de mercado
+    </p>
+    
+    <div class="relative flex items-center overflow-hidden mask-gradient">
+      <!-- Carrossel Wrapper -->
+      <div class="flex items-center gap-[5rem] animate-infinite-scroll whitespace-nowrap">
+        <!-- Logos Originais -->
+        {clients.map((client) => (
+          <img 
+            src={client.logo} 
+            alt={client.name}
+            class="h-[2.5rem] md:h-[3rem] object-contain brightness-0 opacity-50 hover:opacity-80 transition-opacity duration-200"
+          />
+        ))}
+        <!-- Logos Duplicados para Loop Sem Costura -->
+        {clients.map((client) => (
+          <img 
+            src={client.logo} 
+            alt={client.name}
+            class="h-[2.5rem] md:h-[3rem] object-contain brightness-0 opacity-50 hover:opacity-80 transition-opacity duration-200"
+          />
+        ))}
+        {clients.map((client) => (
+          <img 
+            src={client.logo} 
+            alt={client.name}
+            class="h-[2.5rem] md:h-[3rem] object-contain brightness-0 opacity-50 hover:opacity-80 transition-opacity duration-200"
+          />
+        ))}
+        {clients.map((client) => (
+          <img 
+            src={client.logo} 
+            alt={client.name}
+            class="h-[2.5rem] md:h-[3rem] object-contain brightness-0 opacity-50 hover:opacity-80 transition-opacity duration-200"
+          />
+        ))}
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<style>
+  .animate-infinite-scroll {
+    animation: infinite-scroll 20s linear infinite;
+  }
+  
+  @keyframes infinite-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-25%); } 
+    /* -25% porque quadruplicamos a lista (orig + 3 dups). Se fosse só 1 dup seria 50%. 
+       A lista total tem 4 blocos. Mover 1 bloco inteiro é mover 1/4 = 25%. */
+  }
+
+  .mask-gradient {
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+</style>

@@ -1,0 +1,70 @@
+---
+// Modal de agendamento - HubSpot Embed
+---
+
+<div 
+  id="demo-modal" 
+  class="fixed inset-0 z-50 hidden items-center justify-center p-6 bg-black/60 backdrop-blur-sm"
+  onclick="if(event.target === this) closeModal()"
+>
+  <div class="relative w-full max-w-4xl bg-white rounded-2xl shadow-2xl overflow-hidden">
+    
+    <!-- Close -->
+    <button 
+      onclick="closeModal()"
+      class="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-gray-600 transition-colors"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+    
+    <!-- Header -->
+    <div class="p-6 border-b border-gray-200">
+      <h3 class="text-xl font-bold text-gray-900">Agendar demonstração</h3>
+      <p class="text-sm text-gray-500">Escolha o melhor horário</p>
+    </div>
+    
+    <!-- HubSpot -->
+    <div id="hubspot-container" class="p-6" style="min-height: 550px;">
+      <div class="flex items-center justify-center h-64">
+        <p class="text-gray-500">Carregando calendário...</p>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<script is:inline>
+  let hubspotLoaded = false;
+  
+  function openModal() {
+    const modal = document.getElementById('demo-modal');
+    const container = document.getElementById('hubspot-container');
+    
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+    
+    if (!hubspotLoaded) {
+      container.innerHTML = '<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/novos-negocios/fale-com-a-wikimee?embed=true"></div>';
+      
+      const script = document.createElement('script');
+      script.src = 'https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js';
+      document.body.appendChild(script);
+      
+      hubspotLoaded = true;
+    }
+  }
+  
+  function closeModal() {
+    const modal = document.getElementById('demo-modal');
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+  
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+  });
+</script>

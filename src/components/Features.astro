@@ -1,0 +1,107 @@
+---
+// Features FINAL - Screenshots COERENTES com as funcionalidades
+
+const features = [
+  {
+    id: 'portal',
+    title: 'Portal do Cliente',
+    description: 'Seus clientes acessam um portal white-label com sua marca. Visualizam briefings, aprovam materiais e acompanham o progresso dos projetos.',
+    items: ['Login personalizado', 'Sua marca e cores', 'Aprovações em um clique'],
+    image: '/screenshot-1.webp', // Portal Orange - exemplo de white-label
+    reverse: false
+  },
+  {
+    id: 'projetos',
+    title: 'Gestão de Projetos',
+    description: 'Kanban flexível, cronogramas integrados. Organize tarefas por cliente, campanha ou equipe. Veja tudo em um só lugar.',
+    items: ['Kanban flexível', 'Cronogramas visuais', 'Filtros por cliente'],
+    image: '/screenshot-4.webp', // Dashboard Crealia com projetos
+    reverse: true
+  },
+  {
+    id: 'drive',
+    title: 'Drive Centralizado',
+    description: 'Chega de arquivos espalhados. Organize por cliente, projeto ou campanha. Busca avançada e compartilhamento seguro.',
+    items: ['Organização por cliente', 'Compartilhamento seguro', 'Busca avançada'],
+    image: '/screenshot-5.webp', // Wikimee Drive
+    reverse: false
+  }
+];
+---
+
+<section id="features" class="py-[6rem] bg-white">
+  <div class="max-w-[75rem] mx-auto px-[1rem] md:px-[1.5rem] lg:px-[3rem]">
+    
+    <!-- Header CENTRALIZADO com mais peso -->
+    <div class="text-center max-w-[50rem] mx-auto mb-[4rem] fade-section">
+      <p class="text-[0.875rem] font-medium text-[#6D28D9] mb-[0.75rem]">Funcionalidades</p>
+      <h2 class="text-[2.25rem] sm:text-[3rem] font-bold text-[#0A0A0A] mb-[1rem] leading-tight">
+        Tudo que você precisa para gerenciar sua agência
+      </h2>
+      <p class="text-[1.125rem] text-[#737373]">
+        Do portal do cliente aos relatórios — ferramentas integradas que funcionam juntas.
+      </p>
+    </div>
+    
+    <!-- Features alternadas -->
+    <div class="space-y-[6rem]">
+      {features.map((feature) => (
+        <div class={`fade-section flex flex-col ${feature.reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-[3rem] lg:gap-[4rem]`}>
+          
+          <!-- Texto -->
+          <div class="flex-1">
+            <h3 class="text-[1.5rem] lg:text-[2rem] font-semibold text-[#0A0A0A] mb-[1rem]">{feature.title}</h3>
+            <p class="text-[1rem] text-[#737373] mb-[1.5rem] leading-relaxed">{feature.description}</p>
+            
+            <ul class="space-y-[0.75rem]">
+              {feature.items.map((item) => (
+                <li class="flex items-center gap-[0.75rem] text-[#0A0A0A]">
+                  <svg class="w-[1.25rem] h-[1.25rem] text-[#6D28D9] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          
+          <!-- Screenshot -->
+          <div class="flex-1 w-full">
+            <div class="rounded-[0.75rem] overflow-hidden shadow-xl border border-[#E5E5E5] feature-image">
+              <img 
+                src={feature.image} 
+                alt={feature.title}
+                class="w-full h-auto"
+                loading="lazy"
+              />
+            </div>
+          </div>
+          
+        </div>
+      ))}
+    </div>
+    
+  </div>
+</section>
+
+<style>
+  .fade-section {
+    opacity: 0;
+    transform: translateY(2rem);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  .fade-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .feature-image {
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+  }
+  
+  .feature-image:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0 1.5rem 2rem -0.5rem rgba(0, 0, 0, 0.1);
+  }
+</style>
