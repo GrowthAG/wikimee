@@ -61,12 +61,11 @@ const clients = [
   
   @keyframes infinite-scroll {
     from { transform: translateX(0); }
-    to { transform: translateX(-25%); } 
-    /* -25% porque quadruplicamos a lista (orig + 3 dups). Se fosse só 1 dup seria 50%. 
-       A lista total tem 4 blocos. Mover 1 bloco inteiro é mover 1/4 = 25%. */
+    to { transform: translateX(-50%); } 
+    /* Ajuste para loop perfeito com duplicata */
   }
 
   .mask-gradient {
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
   }
 </style>
