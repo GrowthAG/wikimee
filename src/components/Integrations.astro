@@ -1,6 +1,8 @@
 ---
 // Integrations Section - "Orbital Tech"
 // Design: Imagem SVG Orbital fornecida pelo cliente com animação de rotação e Headline Gradient
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <section class="py-[6rem] bg-[#050505] relative overflow-hidden flex flex-col items-center justify-center min-h-[700px]">
@@ -30,7 +32,7 @@
       <div class="absolute inset-0 bg-[#6D28D9] rounded-full filter blur-[80px] opacity-20 group-hover:opacity-40 transition-opacity duration-700"></div>
 
       <img 
-        src="/integrations-orbital.svg" 
+        src={`${base}/integrations-orbital.svg`} 
         alt="Integrações Wikimee" 
         class="w-full h-auto relative z-10 drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] transform transition-all duration-700 ease-out will-change-transform animate-float-3d hover:scale-105"
         style="transform-style: preserve-3d;"
@@ -40,13 +42,13 @@
 
     <!-- Texto à Direita -->
     <div class="flex-1 text-center lg:text-left max-w-[40rem] order-1 lg:order-2">
-      <h2 class="text-[3rem] md:text-[3.5rem] lg:text-[4rem] font-bold text-white leading-[1.1] mb-[1.5rem] tracking-tight">
-        Conecte suas <br class="hidden lg:block" />
-        <span class="block text-transparent bg-clip-text bg-gradient-to-r from-[#A78BFA] to-[#6D28D9] animate-gradient-text">ferramentas favoritas</span>
+      <h2 class="text-[2.25rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[4rem] font-bold text-white leading-[1.1] mb-[1.5rem] tracking-tight">
+        Crie seu <br class="hidden lg:block" />
+        <span class="block text-transparent bg-clip-text bg-gradient-to-r from-[#A78BFA] to-[#6D28D9] animate-gradient-text">ecossistema</span>
       </h2>
       
       <p class="text-[1.125rem] text-[#A3A3A3] leading-relaxed mb-[2.5rem]">
-        Centralize seu fluxo de trabalho. O Wikimee se integra nativamente com o ecossistema que sua agência já utiliza.
+        Dinamize seu fluxo operacional. Wikimee se adapta ao ecossistema que sua agência e clientes utilizam.
       </p>
       
       <button 

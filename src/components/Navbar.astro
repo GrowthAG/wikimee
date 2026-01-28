@@ -1,21 +1,51 @@
-<nav class="fixed top-0 left-0 right-0 z-50 flex items-center h-[4.5rem] px-[1.5rem] bg-[#0A0A0A]/80 backdrop-blur-md transition-all duration-300 supports-[backdrop-filter]:bg-gradient-to-r from-[#0A0A0A]/90 via-[#2e1065]/40 to-[#0A0A0A]/90">
-  <div class="w-full max-w-[80rem] mx-auto flex items-center justify-between">
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 flex items-center h-[4.5rem] px-[1.5rem] transition-all duration-500 border-b border-transparent">
+  <div class="absolute inset-0 bg-[#0A0A0A]/0 backdrop-blur-[0px] transition-all duration-500" id="navbar-bg"></div>
+  
+  <div class="w-full max-w-[80rem] mx-auto flex items-center justify-between relative z-10">
     <!-- Logo -->
-    <a href="/" class="flex items-center gap-[0.75rem]" aria-label="Wikimee Home">
-      <img src="/logo.png" alt="Wikimee" class="h-[1.5rem] md:h-[2rem] w-auto object-contain brightness-0 invert" />
+    <a href={base === '' ? '/' : base} class="flex items-center gap-[0.75rem] group" aria-label="Wikimee Home">
+      <img src={`${base}/logo.png`} alt="Wikimee" class="h-[1.5rem] md:h-[2rem] w-auto object-contain brightness-0 invert transition-transform duration-300 group-hover:scale-105" />
     </a>
 
     <!-- Menu Actions -->
     <div class="hidden md:flex items-center gap-[2rem]">
-      <!-- Menu items removed as per Phase 2 cleanup -->
     </div>
 
     <!-- CTA -->
      <button 
       onclick="openModal()"
-      class="px-[1rem] py-[0.5rem] text-[0.8125rem] md:px-[1.5rem] md:py-[0.625rem] md:text-[0.9375rem] bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-semibold rounded-full transition-all duration-300 shadow-[0_4px_20px_-4px_rgba(109,40,217,0.5)] hover:shadow-[0_8px_25px_-5px_rgba(109,40,217,0.6)] hover:-translate-y-0.5"
+      class="px-[1rem] py-[0.5rem] text-[0.8125rem] md:px-[1.5rem] md:py-[0.625rem] md:text-[0.9375rem] bg-[#6D28D9] hover:bg-[#5B21B6] text-white font-semibold rounded-full transition-all duration-300 shadow-[0_4px_20px_-4px_rgba(109,40,217,0.5)] hover:shadow-[0_8px_25px_-5px_rgba(109,40,217,0.6)] hover:-translate-y-0.5 border border-white/10"
     >
       Agendar Demo
     </button>
   </div>
 </nav>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  const navbarBg = document.getElementById('navbar-bg');
+  
+  if (navbar && navbarBg) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        // Scrolled State
+        navbar.classList.remove('border-transparent');
+        navbar.classList.add('border-white/5');
+        
+        navbarBg.classList.remove('bg-[#0A0A0A]/0', 'backdrop-blur-[0px]');
+        navbarBg.classList.add('bg-[#0A0A0A]/80', 'backdrop-blur-xl');
+      } else {
+        // Top State
+        navbar.classList.add('border-transparent');
+        navbar.classList.remove('border-white/5');
+        
+        navbarBg.classList.add('bg-[#0A0A0A]/0', 'backdrop-blur-[0px]');
+        navbarBg.classList.remove('bg-[#0A0A0A]/80', 'backdrop-blur-xl');
+      }
+    });
+  }
+</script>

@@ -1,18 +1,14 @@
 ---
 // Testimonials - sem logos (movidos para LogosBar)
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 const testimonials = [
   {
     metric: '-40%',
-    metricLabel: 'tempo em gestão', // Adjusted based on new context or kept? User didn't specify metric change, but I'll keep the metric number and label generic or matched? 
-    // Wait, Bruno Zago had '-40% tempo de entrega'.
-    // Bruno Brito is new.
-    // I will keep the metrics/quotes as is, just update Name, Role, Image.
-    // User didn't provide new quotes or metrics.
     metricLabel: 'tempo de entrega',
     quote: '"Wikimee reduziu nosso tempo de ida ao mercado. Eliminamos retrabalho e encurtamos ciclos de aprovação."',
     name: 'Bruno Brito',
-    role: 'CEO, Grupo Mov',
     image: 'https://storage.googleapis.com/msgsndr/oFTw9DcsKRUj6xCiq4mb/media/696a5cfe7f301b2c0d786b56.png'
   },
   {
@@ -20,7 +16,6 @@ const testimonials = [
     metricLabel: 'mais entregas por mês',
     quote: '"Automatizamos o fluxo de criação de peças. A equipe ganhou agilidade e o suporte é fantástico."',
     name: 'Junior Ressutti',
-    role: 'CEO, Agência Flow',
     image: 'https://storage.googleapis.com/msgsndr/oFTw9DcsKRUj6xCiq4mb/media/696a5d00f8c5b872c6e54934.png'
   },
   {
@@ -28,9 +23,7 @@ const testimonials = [
     metricLabel: 'ferramentas',
     quote: '"Centralizo demandas, entregas e desdobramentos criativos. Tudo em um lugar só."',
     name: 'Danilo Arato',
-    role: 'Diretor Criativo, Bolt',
-    image: '/testimonial-danilo.png',
-    video: 'https://player.vimeo.com/video/1136906016?autoplay=1&title=0&byline=0'
+    image: `${base}/testimonial-danilo.png`
   }
 ];
 ---
@@ -40,7 +33,9 @@ const testimonials = [
     
     <!-- Header -->
     <div class="text-center mb-[3rem]">
-      <p class="text-[0.875rem] font-medium text-[#6D28D9] mb-[0.5rem]">Resultados</p>
+      <p class="text-[0.875rem] font-bold tracking-widest text-[#7C3AED] mb-[1rem] uppercase">
+        RESULTADOS QUE APARECEM
+      </p>
       <h2 class="text-[2rem] sm:text-[2.5rem] font-semibold text-[#0A0A0A]">
         Agências que cresceram com Wikimee
       </h2>
@@ -49,7 +44,7 @@ const testimonials = [
     <!-- Grid de testimonials -->
     <div class="grid md:grid-cols-3 gap-[1.5rem]">
       {testimonials.map((testimonial) => (
-          <div class="relative group bg-white rounded-[1.5rem] p-[2.5rem] shadow-sm hover:shadow-xl transition-all duration-300 h-full flex flex-col hover:-translate-y-1">
+          <div class="relative group bg-white rounded-[1.5rem] p-[1.5rem] md:p-[2.5rem] shadow-sm hover:shadow-xl transition-all duration-300 h-full flex flex-col hover:-translate-y-1">
           
           <!-- Stars -->
           <div class="flex gap-[0.25rem] mb-[1.5rem] text-[#F59E0B]">
@@ -91,7 +86,6 @@ const testimonials = [
             </div>
             <div>
               <p class="text-[1rem] font-bold text-[#0A0A0A]">{testimonial.name}</p>
-              <p class="text-[0.875rem] text-[#737373]">{testimonial.role}</p>
             </div>
           </div>
           

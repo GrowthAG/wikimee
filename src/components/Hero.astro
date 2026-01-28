@@ -5,16 +5,18 @@
 
 const pills = [
   'Portal do Cliente',
-  'Projetos', 
+  'Campanhas',
+  'Projetos',
   'Comunicador',
-  'Aprovações',
   'Kanban',
-  'White-label',
-  'Campanhas'
+  'Aprovações',
+  'White-label'
 ];
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
-<section class="relative pt-[5rem] pb-[4rem] md:pt-[6rem] md:pb-[6rem] overflow-hidden bg-[#0A0515]">
+<section class="relative pt-[6rem] pb-[3rem] md:pt-[7rem] md:pb-[4rem] overflow-hidden bg-[#0A0515]">
   
   <!-- World Class Background System -->
   <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
@@ -23,24 +25,24 @@ const pills = [
     <!-- Noise Removed -->
 
     <!-- 2. Perspective Grid (Depth) -->
-    <div class="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] z-10 animate-pulse-slow"></div>
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,#80808005_1px,transparent_1px),linear-gradient(to_bottom,#80808005_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_80%_60%_at_50%_0%,#000_50%,transparent_100%)] z-10"></div>
 
-    <!-- 3. Mesh Aurora Gradients (Organic Movement) -->
+    <!-- 3. Mesh Aurora Gradients (Ultra Smooth) -->
     <div class="absolute top-0 left-0 w-full h-full z-0">
         <!-- Primary Bloom (Purple) -->
-        <div class="absolute top-[-10%] left-[20%] w-[45vw] h-[45vw] bg-[#6D28D9] rounded-full mix-blend-screen filter blur-[100px] opacity-40 animate-aurora-1"></div>
+        <div class="absolute top-[-25%] left-[5%] w-[70vw] h-[70vw] bg-[#6D28D9] rounded-full mix-blend-screen filter blur-[250px] opacity-[0.18] animate-aurora-1"></div>
         <!-- Secondary Bloom (Blue) -->
-        <div class="absolute top-[10%] right-[10%] w-[40vw] h-[40vw] bg-[#2563EB] rounded-full mix-blend-screen filter blur-[100px] opacity-30 animate-aurora-2"></div>
+        <div class="absolute top-[-10%] right-[0%] w-[60vw] h-[60vw] bg-[#4338CA] rounded-full mix-blend-screen filter blur-[220px] opacity-[0.15] animate-aurora-2"></div>
         <!-- Accent Bloom (Pink/Magenta) -->
-        <div class="absolute bottom-[0%] left-[30%] w-[50vw] h-[50vw] bg-[#DB2777] rounded-full mix-blend-screen filter blur-[120px] opacity-20 animate-aurora-3"></div>
+        <div class="absolute bottom-[-20%] left-[20%] w-[70vw] h-[70vw] bg-[#9333EA] rounded-full mix-blend-screen filter blur-[280px] opacity-[0.12] animate-aurora-3"></div>
     </div>
     
     <!-- 4. Vignette Fade -->
-    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#0A0515]/40 to-[#0A0515] z-10"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#0A0515]/10 to-[#0A0515] z-10"></div>
   </div>
   
   <!-- Content -->
-  <div class="relative z-30 max-w-[90rem] mx-auto px-[1.5rem] md:px-[1.5rem] pt-[1rem] md:pt-[5rem] pb-[0rem] md:pb-[6rem]">
+  <div class="relative z-30 max-w-[90rem] mx-auto px-[1.5rem] md:px-[1.5rem] pt-[2rem] md:pt-[2rem] pb-[0rem] md:pb-[6rem]">
     
     <div class="text-center">
       
@@ -48,25 +50,25 @@ const pills = [
       <div class="inline-flex items-center gap-[0.5rem] mb-[1.5rem] px-[0.75rem] py-[0.375rem] bg-white/5 rounded-full border border-white/10 animate-fade-in backdrop-blur-md shadow-lg shadow-purple-900/10">
         <!-- Avatares sobrepostos -->
         <div class="flex -space-x-2">
-          <img src="/testimonial-bruno.png" alt="" class="w-[1.5rem] h-[1.5rem] rounded-full border-2 border-[#0f0d1a] object-cover"/>
-          <img src="/testimonial-pollyanna.png" alt="" class="w-[1.5rem] h-[1.5rem] rounded-full border-2 border-[#0f0d1a] object-cover"/>
-          <img src="/testimonial-danilo.png" alt="" class="w-[1.5rem] h-[1.5rem] rounded-full border-2 border-[#0f0d1a] object-cover"/>
+          <img src={`${base}/testimonial-bruno.png`} alt="" class="w-[1.5rem] h-[1.5rem] rounded-full border-2 border-[#0f0d1a] object-cover"/>
+          <img src={`${base}/testimonial-pollyanna.png`} alt="" class="w-[1.5rem] h-[1.5rem] rounded-full border-2 border-[#0f0d1a] object-cover"/>
+          <img src={`${base}/testimonial-danilo.png`} alt="" class="w-[1.5rem] h-[1.5rem] rounded-full border-2 border-[#0f0d1a] object-cover"/>
         </div>
         <span class="text-[0.8125rem] text-white/90 font-medium tracking-wide">
-          Usado por <span class="text-white">+5k de profissionais</span>
+          Usado por <span class="text-white">mais de 5 mil profissionais</span>
         </span>
       </div>
       
       <!-- Headline CRO -->
       <h1 class="text-[2rem] sm:text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem] font-bold text-white leading-[1.2] md:leading-none mb-[0.75rem] animate-fade-in animation-delay-100 mx-auto max-w-[60rem] tracking-tight drop-shadow-sm">
         Chega de 5 ferramentas <br class="md:hidden" />
-        para <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#A78BFA] via-[#C4B5FD] to-[#A78BFA] bg-[length:200%_auto] animate-gradient-text inline">gerenciar <br class="md:hidden" /> sua agência</span>
+        na <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#A78BFA] via-[#C4B5FD] to-[#A78BFA] bg-[length:200%_auto] animate-gradient-text inline">sua operação criativa</span>
       </h1>
       
       <!-- Subheadline CRO -->
-      <p class="text-[1rem] sm:text-[1.25rem] text-white/70 mb-[1.25rem] max-w-[34rem] mx-auto leading-relaxed animate-fade-in animation-delay-200" style="text-wrap: balance;">
+      <p class="text-[1.25rem] sm:text-[1.5rem] text-white/80 mb-[2rem] max-w-[50rem] mx-auto leading-relaxed animate-fade-in animation-delay-200 font-medium" style="text-wrap: balance;">
         Portal do cliente, projetos, aprovações, comunicador e drive.
-        Tudo em uma única plataforma feita para agências.
+        Tudo em uma única solução feita para agências criativas.
       </p>
       
       <!-- Pills -->
@@ -153,6 +155,8 @@ const pills = [
         </div>
       </div>
       
+    </div>
+    
     </div>
     
   </div>
